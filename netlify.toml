@@ -5,6 +5,11 @@
 [build.environment]
   NODE_VERSION = "22"
 
+[[redirects]]
+  from = "/projects/*"
+  to = "/index.html"
+  status = 200
+
 [[headers]]
   for = "/assets/*"
   [headers.values]

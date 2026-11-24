@@ -1,18 +1,19 @@
 export const profile = {
   name: 'Sanjida Hossain',
-  title: 'Full Stack Developer',
-  location: 'Dhaka, Bangladesh',
+  title: 'Computer Science & Engineering Student',
+  location: 'North Badda, Dhaka',
   timeZone: 'Asia/Dhaka',
   email: 'hsanjida085@gmail.com',
-  availability: 'Open to internships and entry-level roles',
+  phone: '01880369094',
+  availability: 'Seeking an internship or entry-level software role',
   tagline:
-    'I build full-stack web applications with React, Next.js, Node.js and MySQL, and care about interfaces everyone can use.',
+    'Computer Science & Engineering student with software development and accessibility project experience, plus hands-on embedded systems experience with Arduino.',
   summary:
-    'Computer Science & Engineering student at United International University. I build full-stack web applications and an accessibility-focused browser extension, on a foundation of data structures, algorithms and object-oriented programming. I also have hands-on embedded systems experience with Arduino.',
+    'Computer Science & Engineering student with software development experience, an interest in accessibility, and hands-on embedded systems experience with Arduino. Seeking an internship or entry-level software role.',
   about: [
-    'I study Computer Science & Engineering at United International University in Dhaka, with a CGPA of 3.55.',
-    'My final year design project, DVAL, is a browser extension that recolors pages in real time for people with colour vision deficiency. I built its frontend dashboard.',
-    'Outside coursework I build web apps in React and Next.js, and I wired up an Arduino boat that steers around obstacles. I am looking for an internship or an entry-level role where I can keep shipping.',
+    'I am studying Computer Science & Engineering at United International University. My current CGPA is 3.64.',
+    'For DVAL, a team project developed under faculty supervision, I developed the DeepCVD frontend dashboard for a color vision accessibility tool.',
+    'My projects include web applications and an Arduino autonomous boat. I am seeking an internship or entry-level software role.',
   ],
   // Put a photo at public/images/profile.webp and set this path to use it instead of the monogram.
   photo: null as string | null,

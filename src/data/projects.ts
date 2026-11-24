@@ -1,17 +1,17 @@
-import type { Project } from './types';
+import type { Project } from './types.ts';
 
 export const projects: Project[] = [
   {
     id: 'dval',
     title: 'DVAL: Dynamic Visual Accessibility Layer',
-    kind: 'Final Year Design Project',
+    kind: 'Team project',
     status: 'Ongoing',
     period: 'Ongoing',
     summary:
-      'A browser extension for real-time, personalized color correction for users with Color Vision Deficiency. Built by a team of five under faculty supervision.',
+      'A team of five is developing a real-time, personalized color correction tool for people with Color Vision Deficiency (CVD), under faculty supervision.',
     highlights: [
-      'Developed the DeepCVD frontend: an interactive dashboard in HTML and JavaScript, backed by a Flask API.',
-      'Includes an Ishihara color-vision test and a real-time recoloring studio.',
+      'Developed the DeepCVD frontend: an interactive dashboard using HTML and JavaScript with a Flask API.',
+      'The dashboard includes an Ishihara color-vision test and a real-time recoloring studio.',
     ],
     stack: ['HTML', 'JavaScript', 'Flask API'],
     links: [
@@ -32,7 +32,10 @@ export const projects: Project[] = [
       'Admin panel and community issue reporting.',
     ],
     stack: ['Next.js'],
-    links: [{ label: 'Code', href: 'https://github.com/hsanjida/WCC_Web' }],
+    links: [
+      { label: 'Live', href: 'https://wcc-web-chi.vercel.app' },
+      { label: 'Code', href: 'https://github.com/hsanjida/WCC_Web' },
+    ],
   },
   {
     id: 'devstack',
@@ -41,10 +44,9 @@ export const projects: Project[] = [
     status: 'Completed',
     period: 'Live',
     summary:
-      'An interactive React app for browsing 12 technologies across frontend, backend, database and DevOps, then assembling a personalized stack.',
+      'An interactive React app for browsing technologies and assembling a personalized development stack.',
     highlights: [
-      'React hooks drive a real-time stack sidebar.',
-      'Toast notifications with React Toastify.',
+      'Built with React, Vite and Tailwind CSS.',
     ],
     stack: ['React', 'Vite', 'Tailwind CSS'],
     links: [
@@ -62,8 +64,8 @@ export const projects: Project[] = [
     status: 'Completed',
     period: 'Embedded',
     summary:
-      'An Arduino-based boat with obstacle detection and avoidance that navigates between two locations.',
-    highlights: ['Obstacle detection and avoidance in embedded code.'],
+      'An Arduino-based autonomous boat project.',
+    highlights: ['Built with Arduino and embedded systems.'],
     stack: ['Arduino', 'Embedded Systems'],
     links: [],
   },

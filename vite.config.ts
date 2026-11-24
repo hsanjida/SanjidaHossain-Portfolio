@@ -1,5 +1,6 @@
 import { defineConfig, loadEnv, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
+import { projects } from './src/data/projects.ts';
 
 /** Resolve the public site URL: VITE_SITE_URL, then Netlify's URL, then localhost. */
 function siteUrl(env: Record<string, string>): string {
@@ -17,7 +18,7 @@ function seoFiles(url: string): Plugin {
       this.emitFile({
         type: 'asset',
         fileName: 'sitemap.xml',
-        source: `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>${url}/</loc><lastmod>${today}</lastmod><priority>1.0</priority></url>\n</urlset>\n`,
+        source: `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>${url}/</loc><lastmod>${today}</lastmod><priority>1.0</priority></url>\n${projects.map((project) => `  <url><loc>${url}/projects/${project.id}</loc><lastmod>${today}</lastmod><priority>0.8</priority></url>`).join('\n')}\n</urlset>\n`,
       });
       this.emitFile({
         type: 'asset',

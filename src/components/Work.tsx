@@ -10,7 +10,7 @@ export function Work() {
   return (
     <section id="work" aria-labelledby="work-title" className="section">
       <div className="container-x">
-        <SectionHead id="work-title" eyebrow="Work" title="Selected projects." intro="Four projects across web, accessibility and embedded systems. Live demos and source where they exist." />
+        <SectionHead id="work-title" eyebrow="Work" title="Selected projects." intro="Projects in web development, accessibility and embedded systems." />
         <ul className="mt-12 grid gap-6 md:grid-cols-2">
           {projects.map((p, i) => (
             <Reveal as="li" key={p.id} delay={(i % 2) * 0.08}>
@@ -32,8 +32,11 @@ export function Work() {
                     <ul className="mt-4 space-y-2 text-sm">
                       {p.highlights.map((h) => (<li key={h} className="flex gap-3"><span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />{h}</li>))}
                     </ul>
+                    <div className="mt-6 pt-2">
+                      <a href={`/projects/${p.id}`} className="btn btn-ghost">Project details<Icon name="arrow" size={16} /></a>
+                    </div>
                     {p.links.length > 0 && (
-                      <div className="mt-6 flex flex-wrap gap-3 pt-2">
+                      <div className="mt-3 flex flex-wrap gap-3">
                         {p.links.map((l) => (
                           <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" className={`btn ${l.label === 'Live' ? 'btn-primary' : 'btn-ghost'}`}>
                             {l.label}<span className="sr-only"> for {p.title.split(':')[0]} (opens in a new tab)</span><Icon name="arrow" size={16} />

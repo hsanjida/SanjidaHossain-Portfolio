@@ -129,6 +129,7 @@ export function Contact() {
                 <dl className="space-y-4 text-sm">
                   <div><dt className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">Name</dt><dd className="mt-1 font-medium">{profile.name}</dd></div>
                   <div><dt className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">Email</dt><dd className="mt-1 break-all"><a className="underline decoration-lav2 underline-offset-4 hover:text-brand" href={`mailto:${profile.email}`}>{profile.email}</a></dd></div>
+                  <div><dt className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">Phone</dt><dd className="mt-1"><a className="underline decoration-lav2 underline-offset-4 hover:text-brand" href={`tel:${profile.phone}`}>{profile.phone}</a></dd></div>
                   <div><dt className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">Elsewhere</dt><dd className="mt-1 flex gap-4">
                     <a className="underline decoration-lav2 underline-offset-4 hover:text-brand" href={profile.links.github} target="_blank" rel="noopener noreferrer">GitHub<span className="sr-only"> (opens in a new tab)</span></a>
                     <a className="underline decoration-lav2 underline-offset-4 hover:text-brand" href={profile.links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn<span className="sr-only"> (opens in a new tab)</span></a>
