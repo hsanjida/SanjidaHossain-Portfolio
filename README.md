@@ -1,54 +1,62 @@
-# Sanjida Hossain: Portfolio
+# Sanjida Hossain — Portfolio
 
-A one-page portfolio for a Full Stack Developer. Light lavender design with a serif display type, built with Vite, React, TypeScript, Tailwind CSS and Framer Motion. It builds to a static site that deploys on Netlify.
+I built this portfolio to bring together my Computer Science and Engineering studies, skills, volunteer experience, and projects. It’s a small overview of the work I’ve done in web development, accessibility, and embedded systems.
 
-## Setup
+## About me
 
-```bash
-npm install
-cp .env.example .env     # then fill in the values below
-npm run dev              # http://localhost:5173
-npm run build            # type-check and production build into dist/
-npm run preview          # serve the production build
-```
+I’m a Computer Science and Engineering student at United International University in Dhaka, with a current CGPA of 3.64. I’m looking for an internship or an entry-level software role. My interests include building web applications and making technology more accessible.
 
-## Environment variables
+## Projects
 
-| Variable | Purpose |
-| --- | --- |
-| `VITE_WEB3FORMS_KEY` | Access key for the contact form. Get a free one at [web3forms.com](https://web3forms.com) using the email address that should receive messages. Without it the form shows a friendly "not configured" message. |
-| `VITE_SITE_URL` | Public URL (for example `https://sanjida.netlify.app`). Used for the canonical link, Open Graph tags, JSON-LD, `sitemap.xml` and `robots.txt`. On Netlify the built-in `URL` is used when this is empty. |
+### DVAL: Dynamic Visual Accessibility Layer
 
-Keys are read at build time and are never committed. `.env` is git-ignored.
+I developed the DeepCVD frontend dashboard as part of a team of five working under faculty supervision. The project focuses on real-time, personalized color correction for people with Color Vision Deficiency. The dashboard includes an Ishihara color-vision test and a real-time recoloring studio.
 
-## Editing content
+**Technologies:** HTML, JavaScript, Flask API  
+[Live project](https://cvd-result-ui.vercel.app) · [Source code](https://github.com/hsanjida/CVD-Result-UI)
 
-All text lives in typed files in `src/data/`. Components only render it.
+### We Can Change: NGO Volunteer Platform
 
-| File | Controls |
-| --- | --- |
-| `profile.ts` | Name, title, tagline, about text, email, links, nav, photo path, CV path |
-| `projects.ts` | Work cards: summary, highlights, stack, status, Live and Code links |
-| `experience.ts`, `education.ts` | Experience and education entries |
-| `skills.ts` | Skill groups, spoken languages |
-| `stats.ts` | Numbers under the hero (counters) |
-| `faq.ts` | FAQ questions and answers |
+I’m working on a community and volunteer platform for an NGO. It is organized around five wings: Education, Health, Sports, Culture, and Heritage. The platform includes volunteer sign-up, attendance tracking, an admin panel, and community issue reporting.
 
-**Photo:** put an optimised WebP at `public/images/profile.webp` and set `photo: '/images/profile.webp'` in `profile.ts`. Until then a monogram is shown.
+**Technology:** Next.js  
+[Live project](https://wcc-web-chi.vercel.app) · [Source code](https://github.com/hsanjida/WCC_Web)
 
-**CV:** replace `public/Sanjida-Hossain-CV.pdf`. The bundled copy has no phone number or street address; keep it that way if you update it.
+### Dev Stack Builder
 
-**Colors and fonts:** `tailwind.config.js` and `src/index.css`. Fonts (Geist, Instrument Serif) are self-hosted in `public/fonts/`.
+I built an interactive React app for browsing technologies and assembling a personalized development stack.
 
-## Deploy on Netlify
+**Technologies:** React, Vite, Tailwind CSS  
+[Live project](https://agent-6aa7a0f8c5c59a2b84dc1--dulcet-chaja-4a7ada.netlify.app) · [Source code](https://github.com/hsanjida/DevStack)
 
-1. Push this repository to GitHub.
-2. In Netlify choose **Add new site → Import an existing project** and pick the repo. `netlify.toml` already sets build command `npm run build` and publish directory `dist`.
-3. Under **Site configuration → Environment variables** add `VITE_WEB3FORMS_KEY` (and optionally `VITE_SITE_URL`).
-4. Deploy. Redeploy after changing a variable, because Vite inlines them at build time.
+### Autonomous Boat
 
-## Notes
+I built an autonomous boat project using Arduino and embedded systems.
 
-- Motion uses transform and opacity only, respects `prefers-reduced-motion`, and the background pauses when the tab is hidden.
-- The contact form validates on submit, has loading, success and error states, and a hidden honeypot field (`botcheck`).
-- Lighthouse on the production build: Performance 99 to 100, Accessibility 100, Best Practices 100, SEO 100.
+**Technologies:** Arduino, Embedded Systems
+
+## Skills
+
+- **Programming languages:** C, C++, Java, JavaScript, Python
+- **Web and databases:** React, Next.js, Node.js, Express.js, HTML, CSS, Tailwind CSS, MySQL, MongoDB
+- **Tools and hardware:** Git, GitHub, Arduino
+- **Core concepts:** Data Structures and Algorithms, Object-Oriented Programming
+
+## Education
+
+- **B.Sc. in Computer Science & Engineering**, United International University, Dhaka — 2022 to present · CGPA 3.64
+- **Higher Secondary School Certificate (Science)**, Ideal School and College — 2019 to 2021
+- **Secondary School Certificate (Science)**, Ideal School and College — 2013 to 2019
+
+## Volunteering
+
+- **IDP Education Expo 2025:** I supported university representatives with client interactions and helped resolve queries.
+- **UIU CSE Fest 2024:** I coordinated event schedules during technical sessions and supported visitors and participants.
+
+## Built with
+
+React, TypeScript, Vite, Tailwind CSS, and Framer Motion.
+
+## Contact
+
+[Email](mailto:hsanjida085@gmail.com) · [GitHub](https://github.com/hsanjida) · [LinkedIn](https://www.linkedin.com/in/sanjida-pushpo)
