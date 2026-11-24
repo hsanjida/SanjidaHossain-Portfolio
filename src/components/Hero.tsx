@@ -1,74 +1,69 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 import { profile } from '../data/profile';
-import { projects } from '../data/projects';
-import { useClock } from '../hooks/useClock';
+import { Icon } from './ui/Icon';
 import { Magnetic } from './ui/Magnetic';
-import { SplitFlap } from './ui/SplitFlap';
-import { statusStyle } from '../lib/status';
 
 const container = { hidden: {}, show: { transition: { staggerChildren: 0.09, delayChildren: 0.05 } } };
-const item = { hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const } } };
+const item = { hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } } };
 
 export function Hero() {
   const reduce = useReducedMotion();
-  const time = useClock(profile.timeZone);
   const [first, ...rest] = profile.name.split(' ');
+  const socials = [
+    { label: 'GitHub', href: profile.links.github, icon: 'github', external: true },
+    { label: 'LinkedIn', href: profile.links.linkedin, icon: 'linkedin', external: true },
+    { label: 'Email', href: `mailto:${profile.email}`, icon: 'mail', external: false },
+  ];
 
   return (
-    <section id="top" aria-labelledby="hero-title" className="relative flex min-h-[100svh] items-center pb-16 pt-28">
-      <motion.div className="container-x" variants={container} initial={reduce ? false : 'hidden'} animate="show">
-        <motion.p variants={item} className="eyebrow flex flex-wrap items-center gap-x-4 gap-y-1">
-          <span>Departures</span>
-          <span className="text-muted">
-            {profile.location.split(',')[0]} <time className="text-paper" dateTime={time}>{time}</time>
-          </span>
-        </motion.p>
+    <section id="top" aria-labelledby="hero-title" className="relative flex min-h-[100svh] items-center pb-14 pt-32 sm:pt-36">
+      <m.div className="container-x grid items-center gap-12 lg:grid-cols-[1.25fr_1fr]" variants={container} initial={reduce ? false : 'hidden'} animate="show">
+        <div>
+          <m.p variants={item} className="eyebrow">Portfolio &amp; resume</m.p>
+          <m.h1 variants={item} id="hero-title" className="display mt-6 text-[clamp(64px,13vw,132px)]">
+            <span className="block text-ink">{first}</span>
+            <em className="block text-[#4a4655]">{rest.join(' ')}</em>
+            <span className="sr-only">, {profile.title}</span>
+          </m.h1>
 
-        <motion.h1 variants={item} id="hero-title" className="mt-6">
-          <span className="sr-only">{profile.name}, {profile.title}</span>
-          <span aria-hidden="true" className="flex flex-col gap-3">
-            <SplitFlap text={first} tileClass="h-[44px] w-[30px] text-xl sm:h-[72px] sm:w-[50px] sm:text-4xl lg:h-[92px] lg:w-[64px] lg:text-5xl" />
-            <SplitFlap text={rest.join(' ')} tileClass="h-[44px] w-[30px] text-xl sm:h-[72px] sm:w-[50px] sm:text-4xl lg:h-[92px] lg:w-[64px] lg:text-5xl" startDelay={700} />
-          </span>
-        </motion.h1>
+          <m.div variants={item} className="mt-8 inline-flex max-w-full items-center gap-4 rounded-full bg-brand px-3 py-3 pr-6 text-white shadow-soft">
+            <span aria-hidden="true" className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-white/25"><span className="h-2.5 w-2.5 rounded-full bg-white" /></span>
+            <span className="text-base font-semibold sm:text-lg">{profile.title}</span>
+            <span aria-hidden="true" className="hidden h-6 w-px bg-white/30 sm:block" />
+            <span className="hidden font-serif text-lg italic text-white/85 sm:inline">React &amp; Next.js</span>
+          </m.div>
 
-        <motion.p variants={item} className="mt-8 font-mono text-sm font-medium uppercase tracking-[0.18em] text-amber sm:text-base">
-          {profile.title}
-        </motion.p>
-        <motion.p variants={item} className="mt-5 max-w-2xl text-lg leading-relaxed text-muted sm:text-xl">
-          {profile.tagline}
-        </motion.p>
+          <m.p variants={item} className="mt-7 max-w-xl text-lg leading-relaxed text-muted">{profile.tagline}</m.p>
 
-        <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-3">
-          <Magnetic><a href="#projects" className="btn btn-primary">View projects</a></Magnetic>
-          <Magnetic><a href="#contact" className="btn btn-ghost">Contact me</a></Magnetic>
-          <span className="pill ml-1 border-amber/50 text-amber" role="status">
-            <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-amber" />
-            Boarding · {profile.availability}
-          </span>
-        </motion.div>
-
-        <motion.div variants={item} className="board mt-14 overflow-hidden">
-          <div className="flex items-center justify-between border-b border-line px-4 py-3 font-mono text-[11px] uppercase tracking-[0.14em] text-muted sm:px-6">
-            <span>Next departures</span>
-            <span aria-hidden="true">Code · Destination · Status</span>
-          </div>
-          <ul>
-            {projects.map((p) => {
-              const s = statusStyle[p.status];
-              return (
-                <li key={p.code}>
-                  <a href="#projects" className="flex items-center gap-3 border-b border-line px-4 py-3 text-sm last:border-b-0 hover:bg-panel2 sm:gap-6 sm:px-6">
-                    <span className="w-14 shrink-0 font-mono text-amber">{p.code}</span>
-                    <span className="min-w-0 flex-1 truncate font-medium">{p.title.split(':')[0]}</span>
-                    <span className={`pill ${s.pill}`}>{p.status}</span>
+          <m.ul variants={item} className="mt-8 flex flex-wrap gap-3" aria-label="Links">
+            {socials.map((s) => (
+              <li key={s.label}>
+                <Magnetic>
+                  <a href={s.href} {...(s.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className="btn bg-brand2 !px-5 text-white hover:bg-ink">
+                    <Icon name={s.icon} size={18} />{s.label}{s.external && <span className="sr-only"> (opens in a new tab)</span>}
                   </a>
-                </li>
-              );
-            })}
-          </ul>
-        </motion.div>
-      </motion.div>
+                </Magnetic>
+              </li>
+            ))}
+          </m.ul>
+        </div>
+
+        <m.div variants={item} className="relative mx-auto w-full max-w-[380px] lg:mx-0 lg:justify-self-end">
+          <div aria-hidden="true" className="dots absolute -left-24 top-6 h-[360px] w-[360px] opacity-30 sm:-left-32 sm:h-[460px] sm:w-[460px]" />
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[28px] bg-lav2 shadow-soft">
+            {profile.photo ? (
+              <img src={profile.photo} alt={profile.photoAlt} width={380} height={475} decoding="async" className="h-full w-full object-cover" />
+            ) : (
+              <div role="img" aria-label={`${profile.name} monogram`} className="grid h-full w-full place-items-center bg-gradient-to-b from-lav2 to-[#c9bde6]">
+                <span className="font-serif text-[150px] italic leading-none text-brand2/80">{profile.initials}</span>
+              </div>
+            )}
+            <p role="status" className="absolute left-3 top-3 flex items-center gap-2 rounded-full bg-white/90 px-3.5 py-1.5 text-sm font-semibold shadow-sm">
+              <span aria-hidden="true" className="h-2 w-2 rounded-full bg-landed" />Open to internships
+            </p>
+          </div>
+        </m.div>
+      </m.div>
     </section>
   );
 }

@@ -2,10 +2,10 @@ import type { Project } from './types';
 
 export const projects: Project[] = [
   {
-    code: 'DV 101',
+    id: 'dval',
     title: 'DVAL: Dynamic Visual Accessibility Layer',
     kind: 'Final Year Design Project',
-    status: 'IN FLIGHT',
+    status: 'Ongoing',
     period: 'Ongoing',
     summary:
       'A browser extension for real-time, personalized color correction for users with Color Vision Deficiency. Built by a team of five under faculty supervision.',
@@ -20,10 +20,10 @@ export const projects: Project[] = [
     ],
   },
   {
-    code: 'WC 204',
+    id: 'wcc',
     title: 'We Can Change: NGO Volunteer Platform',
     kind: 'Community platform',
-    status: 'BOARDING',
+    status: 'In development',
     period: 'In development',
     summary:
       'A community and volunteer platform for an NGO, organized into five wings: Education, Health, Sports, Culture and Heritage.',
@@ -35,11 +35,11 @@ export const projects: Project[] = [
     links: [{ label: 'Code', href: 'https://github.com/hsanjida/WCC_Web' }],
   },
   {
-    code: 'DS 312',
+    id: 'devstack',
     title: 'Dev Stack Builder',
     kind: 'Interactive web app',
-    status: 'LANDED',
-    period: 'Shipped',
+    status: 'Completed',
+    period: 'Live',
     summary:
       'An interactive React app for browsing 12 technologies across frontend, backend, database and DevOps, then assembling a personalized stack.',
     highlights: [
@@ -56,11 +56,11 @@ export const projects: Project[] = [
     ],
   },
   {
-    code: 'AB 427',
+    id: 'boat',
     title: 'Autonomous Boat',
     kind: 'Embedded systems',
-    status: 'LANDED',
-    period: 'Completed',
+    status: 'Completed',
+    period: 'Embedded',
     summary:
       'An Arduino-based boat with obstacle detection and avoidance that navigates between two locations.',
     highlights: ['Obstacle detection and avoidance in embedded code.'],

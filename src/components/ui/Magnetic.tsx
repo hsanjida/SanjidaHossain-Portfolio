@@ -1,4 +1,4 @@
-import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { m, useMotionValue, useSpring } from 'framer-motion';
 import { useReducedMotion } from 'framer-motion';
 import type { ReactNode } from 'react';
 import { useFinePointer } from '../../hooks/useFinePointer';
@@ -14,7 +14,7 @@ export function Magnetic({ children, strength = 0.3 }: { children: ReactNode; st
   const enabled = fine && !reduce;
 
   return (
-    <motion.div
+    <m.div
       className="inline-block"
       style={enabled ? { x: sx, y: sy } : undefined}
       onPointerMove={
@@ -36,6 +36,6 @@ export function Magnetic({ children, strength = 0.3 }: { children: ReactNode; st
       }
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

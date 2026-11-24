@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 import type { ReactNode } from 'react';
 
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
 /** Fades and lifts content into view once. Opacity and transform only. */
 export function Reveal({ children, delay = 0, y = 24, className, as = 'div' }: Props) {
   const reduce = useReducedMotion();
-  const Comp = motion[as];
+  const Comp = m[as];
   return (
     <Comp
       className={className}

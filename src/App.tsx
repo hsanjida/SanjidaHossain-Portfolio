@@ -1,27 +1,29 @@
 import { About } from './components/About';
+import { AmbientBackground } from './components/AmbientBackground';
 import { Contact } from './components/Contact';
+import { Experience } from './components/Experience';
+import { Faq } from './components/Faq';
 import { Footer } from './components/Footer';
 import { Hero } from './components/Hero';
 import { Navbar } from './components/Navbar';
-import { ParticleBackground } from './components/ParticleBackground';
-import { Projects } from './components/Projects';
 import { ScrollProgress } from './components/ScrollProgress';
 import { Skills } from './components/Skills';
-import { Timeline } from './components/Timeline';
+import { Work } from './components/Work';
 
 export default function App() {
   return (
     <>
-      <a href="#main" className="fixed left-4 top-4 z-[70] -translate-y-24 rounded-full bg-amber px-4 py-2 font-semibold text-ink focus:translate-y-0">Skip to content</a>
-      <ParticleBackground />
+      <a href="#main" className="fixed left-4 top-4 z-[70] -translate-y-24 rounded-full bg-brand px-4 py-2 font-semibold text-white focus:translate-y-0">Skip to content</a>
+      <AmbientBackground />
       <ScrollProgress />
       <Navbar />
       <main id="main">
         <Hero />
         <About />
+        <Experience />
+        <Work />
         <Skills />
-        <Projects />
-        <Timeline />
+        <Faq />
         <Contact />
       </main>
       <Footer />

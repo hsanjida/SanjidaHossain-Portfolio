@@ -3,6 +3,7 @@ import { profile } from '../data/profile';
 import { validateContact, type ContactErrors, type ContactValues } from '../lib/validate';
 import { Magnetic } from './ui/Magnetic';
 import { Reveal } from './ui/Reveal';
+import { SectionHead } from './ui/SectionHead';
 
 type Status = 'idle' | 'loading' | 'success' | 'error';
 
@@ -69,10 +70,10 @@ export function Contact() {
     }
   }
 
-  const field = 'w-full rounded-xl border bg-panel2 px-4 py-3 text-paper placeholder:text-muted/70 transition-colors focus:border-amber focus:outline-none focus-visible:outline-none focus:ring-2 focus:ring-amber/40';
-  const border = (f: keyof ContactValues) => (errors[f] ? 'border-[#ff7b7b]' : 'border-line');
+  const field = 'w-full rounded-2xl border bg-paper px-4 py-3 text-ink placeholder:text-muted/60 transition-colors focus:border-brand focus:outline-none focus-visible:outline-none focus:ring-2 focus:ring-brand/30';
+  const border = (f: keyof ContactValues) => (errors[f] ? 'border-danger' : 'border-line');
   const Err = ({ f }: { f: keyof ContactValues }) =>
-    errors[f] ? <p id={`${id}-${f}-err`} className="mt-1.5 text-sm text-[#ff9a9a]">{errors[f]}</p> : null;
+    errors[f] ? <p id={`${id}-${f}-err`} className="mt-1.5 text-sm text-danger">{errors[f]}</p> : null;
   const aria = (f: keyof ContactValues) => ({
     'aria-invalid': errors[f] ? true : undefined,
     'aria-describedby': errors[f] ? `${id}-${f}-err` : undefined,
@@ -81,14 +82,9 @@ export function Contact() {
   return (
     <section id="contact" aria-labelledby="contact-title" className="section">
       <div className="container-x">
-        <Reveal><p className="eyebrow">Contact</p></Reveal>
-        <Reveal delay={0.05}><h2 id="contact-title" className="h2 mt-3 max-w-2xl">Board the next flight with me.</h2></Reveal>
-        <Reveal delay={0.1}><p className="mt-4 max-w-xl text-lg text-muted">I'm looking for an internship or entry-level role. Send a note and I'll reply by email.</p></Reveal>
+        <SectionHead id="contact-title" eyebrow="Get in touch" title="Let's build something together." intro="I'm looking for an internship or entry-level role. Send a note and I'll reply by email." />
 
-        <Reveal delay={0.15} className="board mt-10 overflow-hidden">
-          <div className="flex items-center justify-between border-b border-dashed border-line px-5 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-muted sm:px-8">
-            <span>Boarding pass</span><span aria-hidden="true">DAC → YOU</span>
-          </div>
+        <Reveal delay={0.15} className="card mt-10 overflow-hidden">
 
           {status === 'success' ? (
             <div role="status" className="grid gap-3 px-5 py-14 text-center sm:px-8">
@@ -129,22 +125,22 @@ export function Contact() {
                 </div>
               </div>
 
-              <aside className="flex flex-col justify-between gap-6 rounded-xl border border-dashed border-line p-5">
+              <aside className="flex flex-col justify-between gap-6 rounded-2xl bg-lav/60 p-5">
                 <dl className="space-y-4 text-sm">
-                  <div><dt className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted">Passenger</dt><dd className="mt-1 font-medium">{profile.name}</dd></div>
-                  <div><dt className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted">Email</dt><dd className="mt-1 break-all"><a className="underline decoration-line underline-offset-4 hover:text-amber" href={`mailto:${profile.email}`}>{profile.email}</a></dd></div>
-                  <div><dt className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted">Elsewhere</dt><dd className="mt-1 flex gap-4">
-                    <a className="underline decoration-line underline-offset-4 hover:text-amber" href={profile.links.github} target="_blank" rel="noopener noreferrer">GitHub<span className="sr-only"> (opens in a new tab)</span></a>
-                    <a className="underline decoration-line underline-offset-4 hover:text-amber" href={profile.links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn<span className="sr-only"> (opens in a new tab)</span></a>
+                  <div><dt className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">Name</dt><dd className="mt-1 font-medium">{profile.name}</dd></div>
+                  <div><dt className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">Email</dt><dd className="mt-1 break-all"><a className="underline decoration-lav2 underline-offset-4 hover:text-brand" href={`mailto:${profile.email}`}>{profile.email}</a></dd></div>
+                  <div><dt className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">Elsewhere</dt><dd className="mt-1 flex gap-4">
+                    <a className="underline decoration-lav2 underline-offset-4 hover:text-brand" href={profile.links.github} target="_blank" rel="noopener noreferrer">GitHub<span className="sr-only"> (opens in a new tab)</span></a>
+                    <a className="underline decoration-lav2 underline-offset-4 hover:text-brand" href={profile.links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn<span className="sr-only"> (opens in a new tab)</span></a>
                   </dd></div>
                 </dl>
                 <div>
                   <Magnetic>
                     <button type="submit" disabled={status === 'loading'} className="btn btn-primary w-full disabled:cursor-wait disabled:opacity-70">
-                      {status === 'loading' ? (<><span aria-hidden="true" className="h-4 w-4 animate-spin rounded-full border-2 border-ink border-t-transparent" />Sending…</>) : 'Send message'}
+                      {status === 'loading' ? (<><span aria-hidden="true" className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />Sending…</>) : 'Send message'}
                     </button>
                   </Magnetic>
-                  <div role="alert" className="mt-3 min-h-[1.25rem] text-sm text-[#ff9a9a]">{status === 'error' ? errorMsg : ''}</div>
+                  <div role="alert" className="mt-3 min-h-[1.25rem] text-sm text-danger">{status === 'error' ? errorMsg : ''}</div>
                 </div>
               </aside>
             </form>

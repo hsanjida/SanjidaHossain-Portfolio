@@ -1,12 +1,9 @@
-export type ProjectStatus = 'LANDED' | 'IN FLIGHT' | 'BOARDING';
+export type ProjectStatus = 'Completed' | 'Ongoing' | 'In development';
 
-export interface ProjectLink {
-  label: string;
-  href: string;
-}
+export interface ProjectLink { label: string; href: string }
 
 export interface Project {
-  code: string;
+  id: string;
   title: string;
   kind: string;
   status: ProjectStatus;
@@ -17,24 +14,24 @@ export interface Project {
   links: ProjectLink[];
 }
 
-export interface SkillGroup {
-  fare: string;
-  title: string;
-  items: string[];
-}
+export interface SkillGroup { title: string; items: string[] }
 
-export interface TimelineEntry {
-  code: string;
+export interface ExperienceEntry {
   period: string;
   title: string;
   place: string;
   detail: string;
-  type: 'Education' | 'Volunteer' | 'Award';
+  tags: string[];
 }
 
-export interface Stat {
-  label: string;
-  value: number;
-  decimals?: number;
-  suffix?: string;
+export interface EducationEntry {
+  period: string;
+  title: string;
+  place: string;
+  detail: string;
+  tags: string[];
 }
+
+export interface Stat { label: string; value: number; decimals?: number; suffix?: string }
+
+export interface Faq { q: string; a: string }

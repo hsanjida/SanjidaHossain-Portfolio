@@ -23,10 +23,12 @@ export const profile = {
     linkedin: 'https://www.linkedin.com/in/sanjida-pushpo',
   },
   nav: [
-    { id: 'about', label: 'About' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'timeline', label: 'Timeline' },
-    { id: 'contact', label: 'Contact' },
+    { id: 'top', label: 'Home', icon: 'home' },
+    { id: 'experience', label: 'Experience', icon: 'briefcase' },
+    { id: 'work', label: 'Work', icon: 'layers' },
+    { id: 'skills', label: 'Skills', icon: 'star' },
+    { id: 'faq', label: 'FAQ', icon: 'help' },
+    { id: 'contact', label: 'Contact', icon: 'mail' },
   ],
+  cvPath: '/Sanjida-Hossain-CV.pdf',
 } as const;

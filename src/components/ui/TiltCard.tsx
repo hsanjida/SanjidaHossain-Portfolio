@@ -1,4 +1,4 @@
-import { motion, useMotionValue, useReducedMotion, useSpring } from 'framer-motion';
+import { m, useMotionValue, useReducedMotion, useSpring } from 'framer-motion';
 import type { ReactNode } from 'react';
 import { useFinePointer } from '../../hooks/useFinePointer';
 
@@ -13,7 +13,7 @@ export function TiltCard({ children, className = '' }: { children: ReactNode; cl
   const enabled = fine && !reduce;
 
   return (
-    <motion.div
+    <m.div
       className={`group relative overflow-hidden ${className}`}
       style={enabled ? { rotateX: rx, rotateY: ry, transformPerspective: 900 } : undefined}
       onPointerMove={
@@ -41,13 +41,13 @@ export function TiltCard({ children, className = '' }: { children: ReactNode; cl
       }
     >
       {enabled && (
-        <motion.div
+        <m.div
           aria-hidden="true"
           className="pointer-events-none absolute left-0 top-0 h-[400px] w-[400px] rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-          style={{ x: gx, y: gy, background: 'radial-gradient(circle, rgba(255,176,32,0.14) 0%, transparent 65%)' }}
+          style={{ x: gx, y: gy, background: 'radial-gradient(circle, rgba(107,79,163,0.10) 0%, transparent 65%)' }}
         />
       )}
       <div className="relative">{children}</div>
-    </motion.div>
+    </m.div>
   );
 }
